@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin operations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/Forgetpassword-Style.css" type="text/css">
+    <link rel="stylesheet" href="css/commonCSS.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+    <style type="text/css">
+        .setmargin {
+            margin-left: 0px;
+            background-color: black;
+            color: white;
+            opacity: 0.8;
+            font-size: 1.5em;
+            margin-bottom: 13px;
+            margin-top: 5px;
+        }
+        
+        .scale-up {
+            width: 100%;
+        }
+        
+        .temple-image-frame {
+            position: relative;
+            width: 100%;
+        }
+        
+        .temple-label {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            font: bold 180% Sans-Serif;
+            letter-spacing: -1px;
+            background: rgb(0, 0, 0);
+            /* fallback color */
+            background: rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            line-height: 80%;
+        }
+        
+        span.province {
+            font-size: 60%;
+        }
+        
+        .nopadding {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        input::-webkit-input-placeholder {
+            font-size: 1.8em;
+            line-height: 3;
+        }
+    </style>
+
+    <script>
+        function delete_temple() {
+            var r = confirm("ยืนยัน?");
+            if (r == true) {
+                var child = document.getElementById("t1");
+                child.parentNode.removeChild(child);
+            } else {
+
+            }
+        }
+
+        function delete_user() {
+            var r = confirm("ยืนยัน?");
+            if (r == true) {
+                var child = document.getElementById("t2");
+                child.parentNode.removeChild(child);
+            } else {
+
+            }
+        }
+
+        function logout() {
+            var r = confirm("ยืนยัน?");
+            if (r == true) {
+                document.location.href = "Homepage.html";
+            } else {
+
+            }
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+    <div class="container-fluid" style="background-color: rgba(255, 255, 255, 0.8)">
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-2 col-xs-4 col-sm-2 nopadding">
+                <button class="btn setmargin" onClick="history.go(-1);return true;">&lt;	&nbsp; กลับ</button>
+
+            </div>
+
+            <div class="col-md-8 col-xs-8 col-sm-9" style="margin-top: 5px">
+
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+
+                        <input type="text" class="form-control input-lg" placeholder="ค้นหาชื่อวัด" />
+                        <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-12 col-sm-12 nopadding">
+                <span style="font-size: 6vmax">รายชื่อวัด/ผู้ใช้</span>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
+                <button data-toggle="modal" data-target="#add_temple" class="btn btn-default">+เพิ่มวัด</button>
+
+                <table class="table" id="templelist">
+                    <thead>
+                        <tr>
+                            <th>ชื่อวัด</th>
+                            <th>ชื่อผู้ใช้</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody id="parent">
+                        <tr id="t1">
+                            <td i="t1-1"><a data-toggle="modal" data-target="#edittemple">วัดช่องลมนาเกลือ</a></td>
+                            <td id="t2">abc@hotmail.com</td>
+
+                        </tr>
+
+                        <tr id="t1">
+                            <td><a data-toggle="modal" data-target="#edittemple">วัดช่องแสมสาร</a></td>
+                            <td id="t2">semsarn@live.com</td>
+                        </tr>
+                        <tr id="t1">
+                            <td><a data-toggle="modal" data-target="#edittemple">วัดเจ็ดยอด</a></td>
+                            <td id="t2">7seven@gmail.com</td>
+                        </tr>
+
+                        <tr id="t1">
+                            <td><a data-toggle="modal" data-target="#edittemple">วัดอุโมงค์</a></td>
+                            <td id="t2">Umonnh@thailandtemple.co.th</td>
+                        </tr>
+
+                        <tr id="t1">
+                            <td><a data-toggle="modal" data-target="#edittemple">วัดหลวงเชียงราย</a></td>
+                            <td id="t2">northernLanna@chiangrai.com</td>
+                        </tr>
+
+                        <tr id="t1">
+                            <td><a data-toggle="modal" data-target="#edittemple">วัด</a></td>
+                            <td id="t2">7seven@gmail.com</td>
+                        </tr>
+                    </tbody>
+
+
+                </table>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-12 nopadding" style="background-color: rgba(0, 0, 0, 0.5)">
+                <div class="col-md-12 nopadding" style="border-bottom: solid 2px;"> </div>
+                <span style="font-size: 2em;color: white;">ติดต่อผู้ดูแลระบบ <a data-toggle="modal" data-target="#myModal">คลิ๊ก</a></span>
+                <div style="float: right;"><span style="font-size: 2em;color: white;"><a onclick="location.href = 'backend/logout.php';">Logout</a></span></div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">สอบถาม</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">เบอร์โทร:</label>
+                        <input type="text" class="form-control" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">เลือกหัวข้อ:</label>
+                        <select class="form-control" id="sel1">
+                          <option>สอบถามข้อมูลทั่วไป</option>
+                          <option>ติดต่อปัญหาการใช้งาน</option>
+                          <option>รายงานข้อมูลผิดพลาด</option>
+                          <option>ติดต่อสอบถามข้อมูลอื่นๆ</option>
+                        </select>
+
+                        <label for="comment">กรอกข้อมูล:</label>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-info" value="ส่ง" onclick="popUp()" data-dismiss="modal">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Edit temple-->
+    <div id="edittemple" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">เลือก</h4>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-default" style="width: 100%; margin-bottom: 10px">แก้ไขวัด</button>
+                    <button type="button" class="btn btn-default" style="width: 100%; margin-bottom: 10px" onclick="delete_temple()">ลบวัด</button>
+                    <button type="button" class="btn btn-default" style="width: 100%; margin-bottom: 10px" onclick="delete_user()">ลบผู้ใช้</button>
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Add temple-->
+    <div id="add_temple" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">เพิ่มวัด</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="email">ชื่อวัด:</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">รูป:</label>
+                        <input type="file" name="pic" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="sel1">เลือกจังหวัด:</label>
+                        <select class="form-control" id="sel1" required>
+                          <option>เชียงใหม่</option>
+                          <option>เชียงราย</option>
+                          <option>กรุงเทพฯ</option>
+                          <option>ลำปาง</option>
+                        </select>
+
+                        <label for="comment">กรอกข้อมูล:</label>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-info" value="ส่ง" onclick="addtemple()" data-dismiss="modal">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function addtemple() {
+            var name = document.getElementById("name").value;
+            var list = document.getElementById("parent");
+            var li1 = document.createElement("t1");
+            li1.appendChild(document.createTextNode(name));
+            li1.setAttribute("id", "t1-1");
+            list.appendChild(li1);
+        }
+    </script>
+</body>
+
+</html>
